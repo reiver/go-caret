@@ -141,6 +141,10 @@ func TestDecode(t *testing.T) {
 			Expected: 0x1F,
 		},
 		{
+			Code:     '`',
+			Expected: 0x20,
+		},
+		{
 			Code:     '?',
 			Expected: 0x7F,
 		},
