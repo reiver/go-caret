@@ -111,7 +111,7 @@ func TestEncodedlen(t *testing.T) {
 
 
 		{
-			Encoded:  "The "+ "^["   +"[1m" +"bold"+ "^[" +"[0m"+" text.",
+			Encoded: "The "+ "^["   +"[1m" +"bold"+ "^[" +"[0m"+" text.",
 			//       ""
 			DecodeLen:         0,
 			ExpectedEncodeLen: 0,
