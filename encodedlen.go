@@ -10,19 +10,20 @@ import (
 //
 //	encoded := "The "+ "^["   +"[1m" +"bold"+ "^["   +"[0m"+" text."
 //
-// Then the decoded text is:
+// Then the plain text decoded text is:
 //
 //	decoded := "The "+ "\x1b" +"[1m" +"bold"+ "\x1b" +"[0m"+" text."
 //
-// And if we were to write 10 bytes of the decoded text to the nested io.Writer in caret.Writer;
-//  i.e., the following decoded text was written to the nested io.Writer in caret.Writer:
+// And if we were to conceptually write 10 bytes of the encoded text to the nested io.Writer
+// in caret.Decoder; i.e., the following decoded text was written to the nested io.Encoder
+// in caret.Writer:
 //
 //	           "The "+ "\x1b" +"[1m" +"bo"
 //
 // Then this is 10 bytes.
 //
-// But the byte count caret.Writer.Write() returns needs to be the number of the input []byte
-// (not how many were actually writte).
+// But the byte count caret.Decoder.Write() returns needs to be the number of the input []byte
+// (not how many were actually written).
 //
 // So we need to return the number of bytes that represents in the Caret Notation -- in the encoded text:
 //
