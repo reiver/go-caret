@@ -59,6 +59,13 @@ func TestDecoderWrite(t *testing.T) {
 			CaretText: "The "+ "^["   +"[1m" +"bold"+ "^["   +"[0m"+" text.",
 			Expected:  "The "+ "\x1b" +"[1m" +"bold"+ "\x1b" +"[0m"+" text.",
 		},
+
+
+
+		{
+			CaretText: "Hi! 🙂 "+ "^["   +"[31m" +"red ۵"+ "^["   +"[0m"+" 👻 - 👽 / 👾",
+			Expected:  "Hi! 🙂 "+ "\x1b" +"[31m" +"red ۵"+ "\x1b" +"[0m"+" 👻 - 👽 / 👾",
+		},
 	}
 
 	for testNumber, test := range tests {
