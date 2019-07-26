@@ -258,6 +258,7 @@ func TestEncodedlen(t *testing.T) {
 			t.Errorf("For test #%d, the actual calculated encoded length was not what was expected", testNumber)
 			t.Logf("EXPECTED: %d", expected)
 			t.Logf("ACTUAL:   %d", actual)
+			t.Logf("DECODED LENGTH: %d", test.DecodeLen)
 			t.Log("ENCODED:...")
 			t.Logf("%q", test.Encoded)
 			continue
