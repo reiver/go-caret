@@ -6,26 +6,26 @@ import (
 	"unicode/utf8"
 )
 
-// Writer lets you write text encoded in Caret Notation, and writes the decoded characters to the nested io.Writer.
+// Decoder lets you write text encoded in Caret Notation, and writes the decoded characters to the nested io.Writer.
 //
 // Example
 //
-// Here is an example using caret.Writer
+// Here is an example using caret.Decoder
 //
 //	var writer io.Writer
 //	
 //	// ...
 //	
-//	var caretWriter caret.Writer = caret.Writer{writer}
+//	var caretDecoder caret.Decoder = caret.Decoder{writer}
 //	
 //	var caretText = []byte("The "+ "\x1b" +"[34m" +"blue"+ "\x1b" +"[0m"+" text.")
 //	
-//	caretWriter.Write(caretText)
-type Writer struct {
+//	caretDecoder.Write(caretText)
+type Decoder struct {
 	Writer io.Writer
 }
 
-func (receiver *Writer) Write(p []byte) (int, error) {
+func (receiver *Decoder) Write(p []byte) (int, error) {
 	if nil == receiver {
 		return 0, errNilReceiver
 	}

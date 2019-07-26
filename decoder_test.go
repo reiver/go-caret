@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestWriterWrite(t *testing.T) {
+func TestDecoderWrite(t *testing.T) {
 
 	tests := []struct{
 		CaretText string
@@ -65,9 +65,9 @@ func TestWriterWrite(t *testing.T) {
 
 		var buffer bytes.Buffer
 
-		var caretWriter caret.Writer = caret.Writer{&buffer}
+		var caretDecoder caret.Decoder = caret.Decoder{&buffer}
 
-		n, err := io.WriteString(&caretWriter, test.CaretText)
+		n, err := io.WriteString(&caretDecoder, test.CaretText)
 		if nil != err {
 			t.Errorf("For test #%d, did not expect an error, but actually got one: (%T) %q", testNumber, err, err)
 			continue
